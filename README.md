@@ -1,42 +1,71 @@
 # Todo List
-![TodoList.webp](./docs/TodoList.webp)
 
-This is a simple Todo List application built using React. It allows users to add, remove, and toggle the completion status of their tasks. Additionally, users can filter tasks based on their completion status.
+![Todo List](./docs/images/readme-banner.webp)
 
-Demo: https://sky9154.com/TodoList
+Todo List is a browser-based task manager built with React 18 and TypeScript. It stores tasks in the browser's local storage, so task text and completion states persist across page reloads without a backend.
 
-### Features
+## Features
 
-- **Add Todo**: Users can add new tasks to the list by typing in the input field and pressing enter.
+- Add tasks with the `+` button.
+- Mark individual tasks as active or completed.
+- Delete tasks with the cross button.
+- Filter the list by `All`, `Active`, or `Completed`.
+- Remove all completed tasks at once.
+- Keep task data in browser local storage.
+- Adapt the layout for desktop and mobile screens.
 
-- **Toggle Completion**: Clicking on a task toggles its completion status.
+## Demo
 
-- **Filter Todos**: Users can filter tasks based on their completion status (all, active, completed).
+[![Todo List demo preview](./docs/images/demo.webp)](https://sky9154.com/github/Todo-List/)
 
-- **Clear Completed**: Users can clear all completed tasks from the list with a single click.
+## Setup and run
 
-- **Local Storage**: Todos are persisted in the browser's local storage, so they are not lost when the page is refreshed.
+Run the following commands from the repository root:
 
-### Technologies Used
+```bash
+yarn install
+yarn dev
+```
 
-- React: JavaScript library for building user interfaces.
+The development server prints its address when it starts.
 
-- TypeScript: Provides type-checking capabilities to JavaScript.
+## Usage
 
-- HTML/CSS: Markup and styling for the application.
+1. Enter a task in the text field.
+2. Select the `+` button to add it to the beginning of the list.
+3. Select a task row or its checkbox to change its completion state.
+4. Use `All`, `Active`, or `Completed` to filter the visible tasks.
+5. Select the cross button to delete one task.
+6. Select `Clear Completed` to remove every completed task.
 
-- Local Storage API: Used to persist todo data in the browser.
+Pressing Enter does not add a task in the current implementation.
 
-### Folder Structure
-- **src**: Contains the source code of the application.
+## Project commands
 
-    - **components**: Contains React components, including `Content`, `Header`, and `Input`.
+| Command | Purpose |
+| --- | --- |
+| `yarn dev` | Start the webpack development server |
+| `yarn build` | Generate static files in `build/` |
+| `yarn prettier` | Format files under `src/` |
 
-    - **App.tsx**: Main entry point of the application.
+## Data storage
 
-    - **index.tsx**: Renders the root React component into the DOM.
-    - **style.css**: Styles for the application.
+Tasks are stored in `localStorage` under the `todoData` key as a JSON array. Each item contains:
 
-### License
+```ts
+{
+  text: string;
+  id: number;
+  checked: boolean;
+}
+```
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+The data belongs to the current browser profile. It is not synchronized between browsers or devices, and clearing the site's browser data removes the stored tasks.
+
+## Third-party material
+
+The interface loads `Baloo Tamma 2` and `Noto Sans TC` from Google Fonts. Their licenses apply separately from this project's MIT License.
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.

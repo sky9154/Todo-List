@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "outDir": "./build/",
+    "rootDir": "./src",
+    "strict": false,
+    "noImplicitAny": true,
+    "module": "node16",
+    "target": "es2015",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "es2015"
+    ],
+    "jsx": "react",
+    "moduleResolution": "node16",
+    "sourceMap": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
+}
